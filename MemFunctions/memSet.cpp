@@ -73,5 +73,10 @@ int main() {
     char x[20];
     memset_naive(x, 0xFF, 20);
     memset_optimised(x, 0xFF, 20);
+
+    char buf[16];
+    memset_optimised(buf, 0xAA, sizeof buf);
+    for (auto c : buf) std::cout << std::hex << (int)(unsigned char)c << ' ';
+    std::cout << '\n';
     return 0;
 }

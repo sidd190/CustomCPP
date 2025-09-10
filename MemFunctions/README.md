@@ -37,7 +37,13 @@ Optimized: Word copies, align pointers, handle tails.
 - memset(0): Not always zero-init.
 
 ## Real Stuff
-Libs use SIMD, unrolling, CPU checks and optimisations on the assembly level. 
+- Libs use SIMD, unrolling, CPU checks and optimisations on the assembly level.
+- Loop unrolling (copy 8 words per iteration).
+- Non-temporal stores to avoid polluting caches for huge copies.
+- Prefetch to hide memory latency.
+- Using size_t/uintptr_t as word type for best throughput.
+- Using memcmp optimizations: compare words and then search for differing byte using bitwise operations (e.g., find first set bit in XOR result).
+
 These are used everywhere in systems programming, embedded systems, game dev,etc majorly for styff like initializing and clearing buffers, moving data where speed matters even in Linux kernels. 
 
 *Very important stuff at the core of a lot of other important stuff imo*

@@ -1,9 +1,8 @@
-// utils.hpp
+// no point exactly, just tried and figured out which to be used why and how
 #pragma once
 #include <cstddef>
 #include <cstdint>
 #include <cassert>
-#include <type_traits>
 
 inline bool is_power_of_two(std::size_t x) { return x && ((x & (x - 1)) == 0); }
 

@@ -1,0 +1,1 @@
+// similar to vector type shi, almost too similar implementation just for strings
